@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="setup.js"></script>
+    <script type="text/javascript" src="fullscreen.js"></script>
+    <script type="text/javascript" src="selections.js"></script>
+    <script type="text/javascript" src="favorites.js"></script>
+    <script src="https://kit.fontawesome.com/291c2f4fc7.js" crossorigin="anonymous"></script>
+</head>
+<body id="body" onload="setup()">
+
+    <!--Favorites Content-->
+    <span id="favorites-header" class="section-header"><i class="fas fa-star section-header-icon"></i> Favorites</span>
+    <div id="favorites-content" class="content-section"></div>
+
+    <!--Content-->
+    <span href="#" class="section-header "><i class="far fa-images section-header-icon"></i> Photos</span>
+    <div id="content" class="content-section"></div>
+    
+    <!--Fullscreen-->
+    <div id="fullscreen-container" class="hide">
+        <img id="fullscreen-image"/>
+        <a id="fullscreen-close-btn" onclick="fullscreenAnimation(false)" class="fullscreen-btn far fa-times-circle"></a>
+        <a id="fullscreen-forward-btn" onclick="fullscreenNext(1)" class="fullscreen-btn fas fa-arrow-circle-right"></a>
+        <a id="fullscreen-back-btn" onclick="fullscreenNext(-1)" class="fullscreen-btn fas fa-arrow-circle-left"></a>
+        <a id="fullscreen-favorite-btn" onclick="favoriteImg(currentFullscreenImageId)" class="fullscreen-btn far fa-star"></a>
+    </div>
+
+    <!--Selection Header-->
+    <div id="selection-header" class="hide">
+        <div class="center">
+            <i class="fas fa-check-circle" id="selection-header-unselect-all" onclick="clearSelections()"></i>
+            <span id="selected-amount"> selected</span>
+        </div>
+        <div class="selection-header-button-container">
+            <div class="selection-header-button" onclick="addSelectedFavorites()" id="selection-header-add-favorite"><i class="fas fa-star selection-header-button-icon"></i>Add</div>
+            <div class="selection-header-button" onclick="removeSelectedFavorites()" id="selection-header-remove-favorite"><i class="far fa-star selection-header-button-icon"></i>Remove</div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+body {
+    color: #5F6368;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    display: flex; 
+    flex-direction: column;
+    animation: fadein 1s;
+}
+
+@keyframes fadein {
+    0% {opacity: 0;}
+    30% {opacity: 0;}
+    100% {opacity: 1}
+}
+
+
+.hide {
+    display: none !important;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.margin-10 {
+    margin: 10 !important;
+}
+
+
+/*Section headers*/
+.section-header {
+    margin-left: 10px;
+    margin-top: 35px;
+    color: #5F6368;
+    width: 200px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.section-header-icon {
+    margin: 0 10px;
+}
+
+
+/*Images*/
+.content-section {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+}
+
+.content-section::after {
+    content: '';
+    flex-grow: 9999;
+}
+
+.content-img-wrapper {
+    height: 28vh;
+    position: relative;
+    margin: 6px;
+    flex-grow: 1;
+    display: flex;
+    background: #E8F0FE;
+    cursor: pointer;
+    max-width: 100%;
+}
+
+.content-img {
+    flex-grow: 1;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.content-img-wrapper:hover .img-overlay{
+    opacity: 1;
+}
+
+.img-overlay {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4));
+    opacity: 0
+}
+
+.image-btn {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    z-index: 1;
+    color: rgba(200, 200, 200, 0.8);
+    font-size: 22px;
+    text-shadow: 0 0 15px rgba(0,0,0,0.3);
+    height: fit-content;
+    cursor: pointer;
+}
+
+.image-btn:hover {
+    color: white
+}
+
+.img-selected {
+    margin: 15px !important;
+}
+
+.fa-circle {
+    margin-right: auto;
+    top: 5px !important;
+    bottom: 0;
+}
+
+.fa-check-circle{
+    margin-right: auto;
+    color: #1A73E8;
+    top: 5px;
+    bottom: 0;
+    background: rgba(255,255,255);
+    border-radius: 50%;
+    box-shadow: 0 0 5px white;
+}
+
+.fa-check-circle:hover {
+    color: #549EFF;
+}
+
+.favorite-img-icon {
+    color: white
+}
+
+
+/*Fullscreen*/
+#fullscreen-container {
+    position: fixed;
+    height: 100vh;
+    z-index: 3;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition-duration: 350ms;
+}
+
+#fullscreen-image {
+    height: 25vh;
+    position: fixed;
+    z-index: 4;
+    transition-duration: 350ms;
+    object-fit: contain;
+    width: 100vw;
+}
+
+.fullscreen-btn {
+    height: fit-content;
+    color:rgb(255,255,255, 0.7);
+    position: absolute;
+    left: 20px; 
+    font-size: 32px;
+    z-index: 5;
+    top: 20px;
+    text-shadow: 0 0 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.fullscreen-btn:hover {
+    color: white
+}
+
+#fullscreen-back-btn {
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#fullscreen-forward-btn {
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: auto;
+    right: 20px;
+    margin-right: 0;
+}
+
+#fullscreen-favorite-btn {
+    top: 20;
+    margin-top: auto;
+    left: auto;
+    right: 20px;
+    margin-right: 0;
+}
+
+
+/*Selection header*/
+#selection-header {
+    background: #1A73E8;
+    position: fixed;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 2;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 20px);
+    padding: 10px;
+}
+
+.selection-header-button-container {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+.selection-header-button {
+    width: 120px;
+    border-radius: 20px;
+    background: #1867CE;
+    padding: 5px;
+    margin: 5px;
+    color: #A5CFFF;
+    cursor: pointer;
+}
+
+.selection-header-button:hover {
+    background: #1E6CCC;
+}
+
+.selection-header-button-icon {
+    margin: 0 8px;
+}
+
+#selection-header-unselect-all {
+    margin: 5px;
+    color: white;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#selection-header-unselect-all:hover {
+    opacity: 0.5;
+}
+
+#selected-amount {
+    margin: 5px;
+}
+
+
+
+
+/*Responsive*/
+@media(max-width: 700px) {
+    #selection-header {
+        flex-direction: column-reverse;
+    }
+
+    .content-img-wrapper {
+        flex-grow: none;
+        width: 33%;
+        height: 33vw;
+    }
+
+    .content-img {
+        width: 33%
+    }
+
+    .section-header {
+        margin-top: 70px;
+    }
+
+}
